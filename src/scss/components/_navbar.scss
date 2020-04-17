@@ -1,0 +1,113 @@
+.navbar {
+   height: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+   &-brand {
+      height: 100%;
+      width: 180px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+         width: 100%;
+         height: 100%;
+         object-fit: contain;
+         object-position: center;
+      }
+   }
+
+   &-menu {
+      display: none;
+      margin-left: 30px;
+      cursor: pointer;
+   }
+
+   &-list {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+
+   &-item, &-item-alt {
+      height: 100%;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+
+   &-item-alt {
+      margin-left: 140px;
+   }
+
+   &-link {
+      color: var(--color-main-normal);
+
+      &:hover {
+         color: var(--color-secondary-light)
+      }
+   }
+
+   &-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+   }
+
+   &-icon {
+      margin-left: 40px;
+
+      img {
+         height: 25px;
+      }
+   }
+
+   @include from (1440px) {
+      &-menu {
+         display: block;
+      }
+      &-list {
+         background: var(--color-header);
+         position: fixed;
+         top: var(--header-height);
+         left: -100%;
+         height: 100vh;
+         width: 70%;
+         flex-direction: column;
+         justify-content: start;
+         align-items: start;
+         transition: left .3s ease-in-out;
+      }
+      &-item, &-item-alt {
+         width: 100%;
+         height: auto;
+         padding: 15px 10px;
+         display: inline-block;
+         font-weight: 400;
+      }
+
+      &-item-alt {
+         margin-left: 0;
+      }
+   }
+
+   @include from (medium){
+      &-list {
+         width: 80%;
+      }
+   }
+
+   @include from (small) {
+      &-list {
+         width: 90%;
+      }
+   }
+   &-active {
+      transition: left .3s ease-in-out;
+      left: 0;
+   }
+}

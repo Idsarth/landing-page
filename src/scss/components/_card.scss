@@ -1,0 +1,127 @@
+.section {
+   height: 700px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+   width: 100%;
+
+   @include from (1440px) {
+      height: auto;
+   }
+
+   &-grid, &-card {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-gap: 2rem;
+      justify-content:space-between;
+      justify-items: space-between;
+      align-items: center;
+      align-content:center;
+      width: 100%;
+   }
+
+   &-card {
+      grid-template-columns: repeat(auto-fit, minmax(430px, 1fr));
+      grid-column-gap: 2rem;
+      grid-row-gap: 5rem;
+
+      @include from (medium) {
+         display: flex;
+         flex-direction: column;
+         width: 100%;
+      }
+
+      @include from (small) { 
+         
+      }
+   }
+
+   div {
+      text-align: center;
+
+      @include from (xlarge) {
+         margin-bottom: 6rem;
+      }
+   }
+}
+
+.card {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+   overflow: hidden;
+   cursor: pointer;
+   width: 100%;
+
+   &:hover &-footer {
+      transform: translateY(0);
+      transition: transform 0.4s ease-in-out;
+   }
+
+   &-header {
+      height: 80px;
+      width: 100px;
+      margin-bottom: 2rem;
+      img {
+         object-fit: contain;
+         object-position: center;
+         height: 100%;
+         width: 100%;
+      }
+   }
+
+   &-title {
+      margin-top: 2rem;
+      font-weight: normal;
+   }
+   &-description {
+      margin-top: 1rem;
+      text-align: center;
+   }
+
+   &-footer {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background: #eee;
+      transform: translateY(280px);
+      transition: transform 0.4s ease-in-out;
+      padding: 15px 0;
+   }
+
+   &-variant-title {
+      margin-top: 2rem;
+      color: purple;
+      text-transform: uppercase;
+
+      @include from (large) {
+         margin-top: 0;
+      }
+
+      @include from (medium) {
+         display: none;
+      }
+   }
+
+   &-variant-description {
+      margin-top: 1rem;
+      font-size: var(--font-size-small);
+   }
+
+   &-variant-header {
+
+   }
+
+   &-button {
+      margin-top: 2rem;
+      border-radius: 200px;
+      background: purple;
+      padding: 12px 30px;
+      color: #fff;
+      border: none;
+      outline: none;
+   }
+}
